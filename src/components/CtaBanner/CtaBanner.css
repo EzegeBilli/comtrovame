@@ -1,0 +1,103 @@
+/* Full-width container with 80px of space on each side */
+.cta .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+.cta__box {
+  position: relative;
+}
+
+/* Photo shows in full: width fills the box, height follows the image */
+.cta__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* Bigger white card on the right, centered vertically over the photo */
+.cta__card {
+  position: absolute;
+  top: 50%;
+  right: 64px;
+  transform: translateY(-50%);
+  width: min(620px, 55%);      /* was max-width 460px */
+  padding: 56px;               /* was 36px */
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.cta__title {
+  font-size: 2rem;             /* was 1.5rem */
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cta__text {
+  margin-top: 16px;
+  font-size: 1.125rem;         /* was 1rem */
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+.cta__button {
+  margin-top: 32px;
+  padding: 16px 32px;
+  font-size: 1.0625rem;
+}
+
+/* ===== Laptops ===== */
+@media (max-width: 1200px) {
+  .cta .container {
+    padding-inline: 40px;
+  }
+
+  .cta__card {
+    right: 32px;
+    width: min(540px, 60%);
+    padding: 40px;
+  }
+
+  .cta__title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ===== Tablet and mobile: card moves under the photo ===== */
+@media (max-width: 1024px) {
+  .cta__card {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: auto;
+    margin: -48px 24px 0;      /* overlaps the bottom of the photo */
+    padding: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta .container {
+    padding-inline: 16px;
+  }
+
+  .cta__card {
+    margin: -32px 12px 0;
+    padding: 28px 24px;
+  }
+
+  .cta__title {
+    font-size: 1.5rem;
+  }
+
+  .cta__text {
+    font-size: 1rem;
+  }
+
+  .cta__button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,134 @@
+/* Full-width container with 80px of space on each side */
+.admin .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+/* Bigger heading than the other sections */
+.admin .section-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+/* Bigger subtitle */
+.admin__subtitle {
+  max-width: 760px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 1.375rem;       /* about 25px with the 18px root */
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+/* Checklist on the left, image on the right */
+.admin__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;   /* more room for the bigger text */
+  align-items: center;
+  gap: 48px;
+  margin-top: 64px;
+}
+
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Bigger checklist text */
+.admin__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 1.25rem;        /* about 22px with the 18px root */
+  line-height: 1.45;
+  color: var(--color-heading);
+}
+
+.admin__check {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  color: var(--color-success);
+}
+
+/* Bigger button */
+.admin__cta {
+  margin-top: 40px;
+  padding: 16px 32px;
+  font-size: 1.125rem;
+}
+
+/* Gold framed dashboard image, shown in full (no cropping) */
+.admin__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Laptops ===== */
+@media (max-width: 1200px) {
+  .admin .container {
+    padding-inline: 40px;
+  }
+
+  .admin__layout {
+    gap: 32px;
+  }
+
+  .admin__item {
+    font-size: 1.125rem;
+  }
+}
+
+/* ===== Tablet: image goes under the list ===== */
+@media (max-width: 1024px) {
+  .admin__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Mobile: list and button only, like the Figma frame ===== */
+@media (max-width: 768px) {
+  .admin .container {
+    padding-inline: 16px;
+  }
+
+  .admin .section-title {
+    font-size: 2rem;
+  }
+
+  .admin__subtitle {
+    font-size: 1.125rem;
+    margin-top: 16px;
+  }
+
+  .admin__layout {
+    margin-top: 32px;
+  }
+
+  .admin__list {
+    gap: 20px;
+  }
+
+  .admin__item {
+    font-size: 1.0625rem;
+    gap: 12px;
+  }
+
+  .admin__check {
+    width: 22px;
+    height: 22px;
+  }
+
+  .admin__image {
+    display: none;
+  }
+
+  .admin__cta {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1.0625rem;
+  }
+}

@@ -1,0 +1,87 @@
+.how {
+  padding-top: var(--section-gap);
+}
+
+/* Full-width container with 80px of space on each side */
+.how .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.how__number {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--color-heading);
+}
+
+.how__step-title {
+  margin-top: 40px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.how__step-text {
+  margin-top: 8px;
+  max-width: 320px;
+  font-size: var(--fs-small);
+  color: var(--color-body);
+}
+
+/* Full-width building photo, shown in full (no cropping) */
+.how__image {
+  display: block;
+  width: 100%;
+  height: auto;              /* was 480px, which cropped the image */
+  margin-top: var(--section-gap);
+}
+
+/* ===== Laptops ===== */
+@media (max-width: 1200px) {
+  .how .container {
+    padding-inline: 40px;
+  }
+}
+
+/* ===== Mobile: steps scroll sideways like the Figma frame ===== */
+@media (max-width: 768px) {
+  .how .container {
+    padding-inline: 0;
+  }
+
+  .how .section-title {
+    padding-inline: 16px;
+  }
+
+  .how__steps {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    padding-inline: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .how__steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .how__step {
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+  }
+
+  .how__step-title {
+    margin-top: 24px;
+  }
+}

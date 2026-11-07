@@ -1,0 +1,86 @@
+.hero {
+  padding-top: 64px;
+  padding-bottom: var(--section-gap);
+  text-align: center;
+  overflow-x: clip;          /* stops a sideways scrollbar from the full-width image */
+}
+
+/* Wider hero container (default container is 1120px) */
+.hero .container {
+  width: min(100% - 48px, 1280px);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.hero__subtitle {
+  max-width: 640px;
+  margin-top: 24px;
+  font-size: 1.0625rem;
+  color: var(--color-body);
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero__actions .btn {
+  padding: 12px 24px;
+}
+
+/* Image breaks out of the container and fills the full page width */
+.hero__image {
+  width: 100vw;
+  max-width: none;
+  margin-top: 48px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 32px;
+  }
+
+  .hero .container {
+    width: min(100% - 32px, 1280px);
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: var(--fs-small);
+  }
+
+  /* Buttons stack and go full width, like the Figma mobile frame */
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__image {
+    width: 100%;             /* on mobile keep it inside the page padding */
+    margin-top: 32px;
+  }
+}

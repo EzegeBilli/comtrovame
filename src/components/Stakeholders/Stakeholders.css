@@ -1,0 +1,104 @@
+/* Full-width container with 80px of space on each side */
+.stakeholders .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+.stakeholders__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.stakeholder-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: #fff;
+}
+
+.stakeholder-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The blur: starts at nothing at the top and gets stronger toward the bottom.
+   The mask is what makes the blur fade in smoothly instead of a hard edge. */
+.stakeholder-card__blur {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 65%);
+  mask-image: linear-gradient(to bottom, transparent, #000 65%);
+  pointer-events: none;
+}
+
+.stakeholder-card__content {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+}
+
+.stakeholder-card__title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.stakeholder-card__text {
+  margin-top: 8px;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ===== Laptops ===== */
+@media (max-width: 1200px) {
+  .stakeholders .container {
+    padding-inline: 40px;
+  }
+
+  .stakeholders__grid {
+    gap: 24px;
+  }
+}
+
+/* ===== Mobile: cards scroll sideways like the Figma frame ===== */
+@media (max-width: 768px) {
+  .stakeholders .container {
+    padding-inline: 0;
+  }
+
+  .stakeholders .section-title {
+    padding-inline: 16px;
+  }
+
+  .stakeholders__grid {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    padding-inline: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .stakeholders__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stakeholder-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    aspect-ratio: 1 / 1.05;
+  }
+}

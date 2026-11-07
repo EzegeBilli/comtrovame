@@ -1,0 +1,61 @@
+/* Full-width container with 80px of space on each side */
+.access .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+.access__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Bigger heading (the default section title is 2rem at most) */
+.access .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+/* Bigger subtitle */
+.access__subtitle {
+  max-width: 680px;          /* was 520px, wider to suit the bigger text */
+  margin-top: 20px;
+  font-size: 1.25rem;        /* was 1rem */
+  line-height: 1.6;
+  color: var(--color-body);
+}
+
+/* Teal banner image, shown in full (no cropping) */
+.access__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 56px;
+}
+
+/* ===== Laptops ===== */
+@media (max-width: 1200px) {
+  .access .container {
+    padding-inline: 40px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .access .container {
+    padding-inline: 16px;
+  }
+
+  .access .section-title {
+    font-size: 1.75rem;
+  }
+
+  .access__subtitle {
+    font-size: 1rem;         /* was 0.875rem */
+  }
+
+  .access__image {
+    margin-top: 32px;
+  }
+}

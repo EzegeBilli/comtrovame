@@ -1,0 +1,152 @@
+/* ===== Comtrova global styles ===== */
+
+:root {
+  /* Brand */
+  --color-primary: #00707a;
+  --color-primary-hover: #005c64;
+  --color-primary-soft: #e6f2f3;
+
+  /* Text */
+  --color-heading: #2b2b2b;
+  --color-body: #6b6b6b;
+  --color-faq-title: #1c1446;
+  --color-faq-body: #6e6a8f;
+  --color-on-primary: #ffffff;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-border: #e5e5e5;
+
+  /* Accents */
+  --color-success: #34a853;
+  --color-warning: #f5a623;
+  --color-danger: #e5484d;
+
+  /* Typography */
+  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-hero: clamp(2.25rem, 5vw, 3.5rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+
+  /* Shape + shadow */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Layout */
+  --container-max: 1120px;
+  --section-gap: 80px;
+  --navbar-height: 72px;
+}
+
+/* ===== Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--color-body);
+  background: var(--color-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-heading);
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ===== Layout helpers ===== */
+.container {
+  width: min(100% - 32px, var(--container-max));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-gap);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 48px;
+    --navbar-height: 64px;
+  }
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+  background: var(--color-bg);
+  color: var(--color-heading);
+  border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-heading);
+}

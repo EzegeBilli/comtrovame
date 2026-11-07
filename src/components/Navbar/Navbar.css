@@ -1,0 +1,132 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+}
+
+/* Full-width navbar with 80px of space on each side */
+.navbar .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 80px;
+}
+
+.navbar__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--navbar-height);
+}
+
+/* Logo */
+.navbar__logo {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo img {
+  height: 28px; /* adjust to match the Figma logo height */
+  width: auto;
+}
+
+/* On desktop the wrapper disappears so links sit in the center column
+   and the button sits in the right column */
+.navbar__menu {
+  display: contents;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.navbar__link {
+  display: block;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  color: var(--color-heading);
+  transition: background 0.2s ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  background: var(--color-primary-soft);
+}
+
+.navbar__cta {
+  justify-self: end;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+}
+
+/* Hamburger hidden on desktop */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 4px;
+  color: var(--color-heading);
+}
+
+/* Laptops: slightly less space so nothing gets crowded */
+@media (max-width: 1200px) {
+  .navbar .container {
+    padding-inline: 40px;
+  }
+
+  .navbar__links {
+    gap: 24px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .navbar .container {
+    padding-inline: 16px;
+  }
+
+  .navbar__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar__toggle {
+    display: inline-flex;
+  }
+
+  .navbar__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .navbar__menu--open {
+    display: flex;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .navbar__link {
+    padding: 12px;
+  }
+
+  .navbar__cta {
+    width: 100%;
+  }
+}
